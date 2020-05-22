@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Demo para entendimento do Router em React
 
-## Available Scripts
+- `react-router` é o pacote _core_ para o _router_, enquanto que `react-router-dom` e `react-router-native` são específicos do ambiente;
+- caso esteja construindo um _website_, use o `react-router-dom`. Caso seja aplicação _mobile_, use `react-router-native`;
 
-In the project directory, you can run:
+### Instalação do `react-router-dom`
+- `npm install --save react-router-dom`
 
-### `yarn start`
+### Componente Router
+- existem 2 componentes para aplicações baseadas no navegador:
+    - `<BrowserRouter>` cria `http://example.com/about`;
+    - `<HashRouter>` cria `http://example.com/#/about`.
+- `<BrowserRouter>` é mais popular pois usa o _HTML5 History API_, já `<HashRouter>` por usar _hash portion_ de uma URL (`window.location.hash`) é mais indicada para navegadores legado.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Aplicação em `index.js`
+- Empacote o `<BrowserRouter>` sobre o componente `<App>`
+```javascript
+<BrowserRouter>
+    <App />
+</BrowserRouter>
+```
+- lembrando que é preciso importá-lo:
+```javascript
+import { BrowserRouter } from 'react-router-dom';
+```
+- **Observação**: Um componente router pode apenas ter um elemento filho, podendo ser um elemento HTML ou um componente React;
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Links e Routes
+- `<Route>` é o componente mais importante em React _router_. Ele faz o _render_ de alguma UI se a _location_ atual corresponde com o _path_ da _route_. De preferência, esse componente deve ter uma propriedade chamada `path`, a qual, se corresponder com a _location_ atual, é feito o _render_;
+- `<Link>` por outro lado, esse componente é utilizado para navegar entre páginas, quase que como um âncora HTML, só que faz a navegação sem _refresh_ de toda a página.
+- No exemplo citado é necessário usar a propriedade `exact={true}` para não fazer o _render_ de _Home_ e _Category_, pois ambos começam com `/`.
+```javascript
+<Menu />
+<Route exact={true} path="/" component={Home} />
+<Route path="/category" component={Category} />
+<Route path="/products" component={Products} />
+```
+- ### Nested Routing
+ - Antes é preciso entender bem como `<Route>` funciona:
+    - `component`: quando a URL corresponde, o route cria um elemento React;
+    - `render`: é apropriado para _inline rendering_. Essa propriedade espera uma função que retorne um elemento React quando a _location_ corresponde ao caminho da rota;
+    - `children` similar ao `render`, ou seja, espera uma função que retorne um elemento React. No entanto, filhos (_children_) são renderizados independente se os caminhos correspondem ou não
