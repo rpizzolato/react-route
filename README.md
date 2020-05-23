@@ -50,7 +50,7 @@ import { BrowserRouter } from 'react-router-dom';
     - `match.params`: retorna um objeto contendo pares _key/value_ com informações da _URL_;
 
 ### Componente `<Switch>`
-- Quando há múltiplos componentes `<Route>` (utilizados juntos), por começar com `/`, todos farão correnpondência um com o outro, assim os renderizando ao mesmo tempo. Para resolver isso, é utilizado o `<Switch>`. Com o `<Switch>` como elemento pai, apenas o primeiro filho (um elemento `<Route>`) do `<Switch>` será renderizado. Exemplo de uso logo abaixo:
+- Quando há múltiplos componentes `<Route>` (utilizados juntos), por começar com `/`, todos farão correspondência um com o outro, assim os renderizando ao mesmo tempo. Para resolver isso, é utilizado o `<Switch>`. Com o `<Switch>` como elemento pai, apenas o primeiro filho (um elemento `<Route>`) do `<Switch>` será renderizado. Exemplo de uso logo abaixo:
 ```javascript
 <Switch>
     <Route exact={true} path="/" component={Home} />
@@ -64,7 +64,7 @@ import { BrowserRouter } from 'react-router-dom';
 - ainda sobre o exemplo acima, caso não fosse utilizado o `<Switch>`, quando clicarmos nas rotas `/category` ou `/products`, a rota `/:id` também seria renderizada, ao mesmo tempo que as duas primeiras. O `<Switch>` resolve exatamente esse problema.
 
 ### Protegendo Routes
-- `<Redirect>`: substitui o _location_ atual no _history stack_ com uma nova _location_, espedificado pela propriedade `to`, como o exemplo abaixo:
+- `<Redirect>`: substitui o _location_ atual no _history stack_ com uma nova _location_, especificado pela propriedade `to`, como o exemplo abaixo:
 ```javascript
 <Redirect to={{pathname: '/login', state: {from: props.location}}}
 ```
