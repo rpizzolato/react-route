@@ -6,8 +6,8 @@ import './style.css';
 const Menu = () => {
     return(
         <div>
-            <nav className="navbar navbar-light">
-                <ul className="nav navbar-nav">
+            <nav>
+                <ul className="navbar">
                     <li>
                         <Link to="/">Home</Link>
                     </li>
@@ -16,6 +16,9 @@ const Menu = () => {
                     </li>
                     <li>
                         <Link to="/products">Products</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin">Admin area</Link>
                     </li>
                 </ul>
             </nav>

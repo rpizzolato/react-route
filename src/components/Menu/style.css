@@ -1,9 +1,28 @@
-.navbar .navbar-nav {
-    display: inline-block;
+.navbar {
+    display: flex;
+    height: 40px;
+    justify-content: flex-start;
+    align-items: center;    
     float: none;
     vertical-align: top;
+    background-color: #ccc;
 }
 
-.navbar .navbar-collapse {
-    text-align: center;
+.navbar li {
+    margin: 5px;
+    list-style: none;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: blue;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.navbar li a:hover {
+    text-decoration: none;
+    background-color: cornsilk;
+    padding: 5px;
 }

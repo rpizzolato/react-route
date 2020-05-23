@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
+import './style.css';
+
 const Category = ({ match }) => {
 
     
 
     return(
-        <div>
+        <div className="menu">
             {" "}
             <ul>
                 <li>
@@ -20,7 +22,7 @@ const Category = ({ match }) => {
                 </li>
             </ul>
             <Route
-                path={`$match.path/:name`}
+                path={`${match.path}/:name`}
                 render={({ match }) => (
                     <div>
                         {" "}

@@ -62,3 +62,12 @@ import { BrowserRouter } from 'react-router-dom';
 </Switch>
 ```
 - ainda sobre o exemplo acima, caso não fosse utilizado o `<Switch>`, quando clicarmos nas rotas `/category` ou `/products`, a rota `/:id` também seria renderizada, ao mesmo tempo que as duas primeiras. O `<Switch>` resolve exatamente esse problema.
+
+### Protegendo Routes
+- `<Redirect>`: substitui o _location_ atual no _history stack_ com uma nova _location_, espedificado pela propriedade `to`, como o exemplo abaixo:
+```javascript
+<Redirect to={{pathname: '/login', state: {from: props.location}}}
+```
+
+### Referências
+- [https://www.sitepoint.com/react-router-complete-guide/](https://www.sitepoint.com/react-router-complete-guide/)

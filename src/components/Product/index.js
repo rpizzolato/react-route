@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css';
 
 
 const Product = ({ match, data }) => {
@@ -7,7 +8,7 @@ const Product = ({ match, data }) => {
 
     if (product) {
         productData = (
-            <div>
+            <div className="product">
                 <h3> {product.name} </h3>
                 <p> {product.description} </p>
                 <hr />
@@ -20,7 +21,7 @@ const Product = ({ match, data }) => {
 
     return (
         <div>
-            <div>{productData}</div>
+            <div className="product-data">{productData}</div>
         </div>
     );
 }

@@ -1,0 +1,23 @@
+.menu ul {
+    list-style: none;
+    display: flex;
+    background: darkgray;
+    align-items: center;
+    height: 35px;
+}
+
+.menu ul li {
+    margin: 5px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    color: darkgreen;
+}
+
+.menu ul li a:hover {
+    background-color: darkorange;
+}

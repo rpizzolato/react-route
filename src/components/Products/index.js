@@ -4,6 +4,8 @@ import productData from '../../data/mockdata.js';
 import { Link, Route } from 'react-router-dom';
 import Product from '../Product/index.js';
 
+import './style.css';
+
 const Products = ( {match} ) => {
     
     const linkList = productData.map(product => {
@@ -15,7 +17,7 @@ const Products = ( {match} ) => {
     });
 
     return(
-        <div>
+        <div className="product-list">
             <h3>Products</h3>
             <ul> { linkList } </ul>
 
